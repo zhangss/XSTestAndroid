@@ -1,0 +1,113 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/tabbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tabbar_height"
+        android:layout_gravity="bottom"
+        android:background="@drawable/tab_layout_bg_selector"
+        android:orientation="horizontal"
+        android:visibility="visible" >
+
+       <RadioButton
+            android:id="@+id/tabbar_home"
+            android:text="@string/tabbar_home"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tabbar_item_height"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_home_icon_selector"
+            android:gravity="center"
+            android:paddingBottom="@dimen/tabbar_interval"
+            android:textColor="@color/table_textColor_normal"
+            android:textSize="@dimen/tabbar_textSize" />
+
+        <RadioButton
+            android:id="@+id/tabbar_car"
+            android:text="@string/tabbar_car"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tabbar_item_height"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_search_icon_selector"
+            android:gravity="center"
+            android:paddingBottom="@dimen/tabbar_interval"
+            android:textColor="@color/table_textColor_normal"
+            android:textSize="@dimen/tabbar_textSize" />
+
+        <RadioButton
+            android:id="@+id/tabbar_bargain"
+            android:text="@string/tabbar_bargain"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tabbar_middle_height"
+            android:layout_gravity="bottom"
+            android:layout_weight="1.6"
+            android:background="@color/transparent"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_bargain_icon_selector"
+            android:gravity="center"
+            android:paddingBottom="@dimen/tabbar_interval"
+            android:textColor="@color/table_textColor_normal"
+            android:textSize="@dimen/tabbar_textSize" />
+
+
+        <RadioButton
+            android:id="@+id/tabbar_my"
+            android:text="@string/tabbar_my"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tabbar_item_height"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_personal_icon_selector"
+            android:gravity="center"
+            android:paddingBottom="@dimen/tabbar_interval"
+            android:textColor="@color/table_textColor_normal"
+            android:textSize="@dimen/tabbar_textSize" />
+
+        <RadioButton
+            android:id="@+id/tabbar_more"
+            android:text="@string/tabbar_more"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tabbar_item_height"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_more_icon_selector"
+            android:gravity="center"
+            android:paddingBottom="@dimen/tabbar_interval"
+            android:textColor="@color/table_textColor_normal"
+            android:textSize="@dimen/tabbar_textSize" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/main_content"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tabbar_height" />
+    </LinearLayout>
+
+</FrameLayout>

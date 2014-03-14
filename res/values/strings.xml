@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">XSTest</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="tabbar_home">首 页</string>
+    <string name="tabbar_car">找 车</string>
+    <string name="tabbar_bargain">砍 价</string>
+    <string name="tabbar_my">我 的</string>
+    <string name="tabbar_more">更 多</string>
+</resources>

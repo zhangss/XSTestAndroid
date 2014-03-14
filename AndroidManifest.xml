@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.xstestandroid"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <!-- 权限配置部分 -->
+    <!-- 用户网络访问所属权限 -->
+    <!-- 允许程序访问有关GSM网络信息(Allows applications to access information about networks) -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 允许程序打开网络套接字(Allows applications to open network sockets) -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 允许程序访问Wi-Fi网络状态信息(Allows applications to access information about Wi-Fi networks) -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- 允许程序改变Wi-Fi连接状态(Allows applications to change Wi-Fi connectivity state) -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+        
+    <!-- 电话相关权限 -->
+    <!-- 允许一个程序访问手机状态(Allows read only access to phone state.) -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!-- 允许一个程序初始化一个电话拨号不需通过拨号用户界面需要用户确认 
+    (Allows an application to initiate a phone call 
+    without going through the Dialer user interface for the user to confirm the call being placed.) -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    
+    <!-- GPS定位相关权限 -->
+    <!-- 允许一个程序访问精良位置(如GPS) (Allows an application to access fine (e.g., GPS) location) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- 允许一个程序访问CellID或WiFi热点来获取粗略的位置(Allows an application to access coarse (e.g., Cell-ID, WiFi) location) -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 允许程序创建模拟位置提供用于测试(Allows an application to create mock location providers for testing) -->
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <!--  -->
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+    <!-- 百度定位的服务 -->
+    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE"></permission>
+
+    <!-- 文件及读写外部存储器相关权限 -->
+    <!-- 允许程序写入扩展存储，向扩展卡写入数据 (Allows an application to write to external storage)-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 允许程序读取或写入系统设置(Allows an application to read or write the system settings. ) -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <!-- 允许程序获取低级别的系统日志(Allows an application to read the low-level system log files) -->
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <!-- 允许从可以动的SD卡中安装或者卸载文件(Allows mounting(安装) and unmounting(卸载) file systems for removeable storage) -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    
+    
+    <!-- APP支持的最低及最高SDK targetSdkVersion应该是最高支持版本，否侧会报警告.或者直接不定义此标签. -->
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <!-- APP设置屏幕自动适配
+    resizeable:指示APP是否支持自动调整尺寸.默认ture,
+    anyDensity:标识APP是否包含了能够适用于任何屏幕密度的资源,对于Android1.6（API Level 4）和更高版本的应用程序,默认ture.    
+     -->
+    <supports-screens android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"
+        android:resizeable="true"
+        android:anyDensity="true"/>
+    
+    <application
+        android:name="com.example.xstestandroid.base.MainApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_butter"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.xstestandroid.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <!-- 加入百度定位服务 -->
+        <service android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:permission="android.permission.BAIDU_LOCATION_SERVICE"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v4.1"/>
+            </intent-filter>    
+        </service>
+        <!-- 加入百度的AccessKey -->
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="7uS3PvTMyPe5CT1fCzaP0SzP"/>
+        
+    </application>
+    
+</manifest>
