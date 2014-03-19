@@ -9,12 +9,12 @@ public class EnvConfigure {
 	 */
 	private City currentCity;
 	private String KEY_CURRENT_CITY = "current_city";
-	public void setCurrentCity(){
-		currentCity = get
+	public void setCurrentCity(City city){
+		currentCity = city;
 	}
 	
 	public City getCurrentCity(){
-		
+		return currentCity;
 	}
 
 }

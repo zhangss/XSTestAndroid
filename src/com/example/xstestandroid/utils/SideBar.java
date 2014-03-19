@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.saic.android.bartackapp.R;
+import com.example.xstestandroid.R;
 
 public class SideBar extends View {
 	// 触摸事件
@@ -56,7 +56,7 @@ public class SideBar extends View {
 
 		for (int i = 0; i < b.length; i++) {
 			paint.setColor(Color.rgb(33, 65, 98));
-			paint.setColor(getResources().getColor(R.color.color_gray_1));
+			paint.setColor(getResources().getColor(R.color.common_bg));
 			paint.setTypeface(Typeface.DEFAULT_BOLD);
 			paint.setAntiAlias(true);
 			paint.setTextSize(textSize);
@@ -95,7 +95,7 @@ public class SideBar extends View {
 			if (action == MotionEvent.ACTION_UP) {
 				setBackgroundDrawable(new ColorDrawable(0x00000000));
 			} else {
-				setBackgroundResource(R.drawable.sort_sidebar_background);
+				setBackgroundResource(R.drawable.tab_home_icon_n);
 			}
 
 			if (listener != null) {
