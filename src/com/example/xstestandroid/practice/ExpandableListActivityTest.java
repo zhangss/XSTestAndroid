@@ -1,7 +1,5 @@
 package com.example.xstestandroid.practice;
 
-import com.example.xstestandroid.R;
-
 import android.app.ExpandableListActivity;
 import android.os.Bundle;
 import android.view.Gravity;
