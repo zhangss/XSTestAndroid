@@ -32,6 +32,9 @@ public class DrawView extends View {
 		canvas.drawCircle(curX, curY, 15, paint);
 	}
 	
+	/**
+	 * 此时使用回调机制处理事件，有助于程序功能的内聚
+	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
@@ -41,7 +44,7 @@ public class DrawView extends View {
 		//重绘对象
 		invalidate();
 		
-		//返回true表示已经处理完
+		//返回true表示已经处理完 事件不会被继续分发
 		return true;
 	}
 	

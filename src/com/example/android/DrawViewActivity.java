@@ -5,8 +5,13 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import com.example.xstestandroid.R;
-
-public class CustomViewActivity extends Activity {
+/**
+ * 代码增加UI控件,自定义的UI控件
+ * 实现会跟着手指移动的小球
+ * @author saic
+ *
+ */
+public class DrawViewActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

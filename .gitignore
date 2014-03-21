@@ -5,9 +5,10 @@
 # *为通配符
 
 # 忽略bin目录所有文件
-/bin
+bin
 # 忽略所有.class类型文件
 *.class
 
 .DS_Store
 .settings
+gen

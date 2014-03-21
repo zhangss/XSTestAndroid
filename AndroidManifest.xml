@@ -68,8 +68,10 @@
         android:icon="@drawable/ic_butter"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <!-- 设置Activity可以监听屏幕方向改变事件 -->
         <activity
             android:name="com.example.xstestandroid.MainActivity"
+            android:configChanges="orientation" 
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
