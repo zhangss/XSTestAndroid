@@ -25,7 +25,6 @@ public class DrawView extends View {
 	protected void onDraw(Canvas canvas) {
 		// TODO Auto-generated method stub
 		super.onDraw(canvas);
-		
 		//设置颜色
 		paint.setColor(Color.RED);
 		//绘制一个红色球点

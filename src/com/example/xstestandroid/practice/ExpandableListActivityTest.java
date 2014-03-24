@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.xstestandroid.R;
+
 public class ExpandableListActivityTest extends ExpandableListActivity {
 	
 	@Override
@@ -23,9 +25,9 @@ public class ExpandableListActivityTest extends ExpandableListActivity {
 			//数据结构
 			//图片
 			int[] logos = new int[]{
-//					R.drawable.picture_frame,
-//					R.drawable.zoom_plate,
-//					R.drawable.title_bar
+					R.drawable.p,
+					R.drawable.z,
+					R.drawable.t
 					};
 			//组数据
 			private String[] armType = new String[]{

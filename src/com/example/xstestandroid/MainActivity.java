@@ -24,6 +24,7 @@ package com.example.xstestandroid;
 
 import java.util.ArrayList;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -47,8 +48,10 @@ import com.example.xstestandroid.base.Route;
 import com.example.xstestandroid.home.HomeFragment;
 import com.example.xstestandroid.main.MainViewModel;
 import com.example.xstestandroid.other.OtherFragment;
+import com.example.xstestandroid.other.OtherFragment.ListFragmentCallBacks;
+import com.example.xstestandroid.practice.PracticeLauncherActivity;
 
-public class MainActivity extends BaseFragmentActivity {
+public class MainActivity extends BaseFragmentActivity implements ListFragmentCallBacks{
 
 	private View mainView;
 	private MainViewModel mainModel;
@@ -344,7 +347,8 @@ public class MainActivity extends BaseFragmentActivity {
 		setView();
 		initData();
 		
-		fm = this.getSupportFragmentManager();
+		fm = this.getSupportFragmentManager();  //android.app.Fragment兼容到3.0版本 SDK11
+		//fm = getFragmentManager(); android.v4.app.Fragment 兼容到1.6版本
 		
 		intent = getIntent();
 		int flag = intent.getIntExtra("flag", 0);
@@ -464,6 +468,7 @@ public class MainActivity extends BaseFragmentActivity {
 		ft = fm.beginTransaction();
 		ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
 		ft.replace(R.id.main_content, fragmentList.get(index));
+		ft.addToBackStack(null);//允许back回到之前的状态
 		ft.commit();
 	}
 	
@@ -501,7 +506,56 @@ public class MainActivity extends BaseFragmentActivity {
 		MainApplication application = (MainApplication)getApplication();
 		application.setLocationOption();
 		application.startLocation();
+	}
 
+	//ListFragment接口
+	@Override
+	public void onItemSelected(Integer id, Class<?> classString) {
+		// TODO Auto-generated method stub
+		Log.v("Selected:", "id" + id);
+		
+		/**
+		 * Intent是对启动意图进行的封装，包含了各种类型组件的启动(Activity,Service,BroadcastReceiver)
+		 * 切换Activity 1.创建意向 2.启动Activity
+		 * 直接启动或者定义一个请求码
+		 */
+		Intent intent = new Intent(this, classString);
+				
+//		startActivity(intent);
+		startActivityForResult(intent, 0);
+		
+		/**
+		 * Component
+		 */
+//		ComponentName comp = new ComponentName(MainActivity.this, classString);
+//		Intent intent = new Intent();
+//		intent.setComponent(comp);
+//		startActivity(intent);
+//		intent.getComponent().getPackageName();
+//		intent.getComponent().getClassName();
+		
+	}
+		
+	/**
+	 * Called when an activity you launched exits, giving you the requestCode
+     * you started it with, the resultCode it returned, and any additional
+     * data from it.  The <var>resultCode</var> will be
+     * {@link #RESULT_CANCELED} if the activity explicitly returned that,
+     * didn't return any result, or crashed during its operation.
+     * 
+     * <p>You will receive this call immediately before onResume() when your
+     * activity is re-starting.
+	 */
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		//请求码在Activity启动时定义 结果码在结果返回触发时定义 使用setResult()返回结果
+		if (requestCode == 0 && resultCode == 0) {
+			//
+			Bundle bundle = data.getExtras();
+			String string = bundle.getString("key");
+			Log.v("Reveived", string);
+		}
 	}
 		
 }

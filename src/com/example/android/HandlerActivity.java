@@ -1,6 +1,5 @@
 package com.example.android;
 
-import java.security.PublicKey;
 import java.util.Timer;
 import java.util.TimerTask;
 
