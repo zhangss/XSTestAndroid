@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.xstestandroid.R;
 
-public class FragmentLayoutTest extends Activity {
+public class FragmentLayoutActivity extends Activity {
 	private int currentColor = 0;
 	final int[] colors = new int[]{
 			

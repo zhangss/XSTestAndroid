@@ -24,7 +24,6 @@ package com.example.xstestandroid;
 
 import java.util.ArrayList;
 
-import android.app.Application;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
