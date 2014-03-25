@@ -9,4 +9,10 @@
     <string name="tabbar_bargain">砍 价</string>
     <string name="tabbar_my">我 的</string>
     <string name="tabbar_more">更 多</string>
+    <string name="show_contact">查看联系人</string>
+    <string name="contact_name">名称</string>
+    <string name="contact_phone">电话</string>
+    <string name="return_home">返回桌面</string>
+    <string name="sp_action">特殊操作</string>
+   
 </resources>

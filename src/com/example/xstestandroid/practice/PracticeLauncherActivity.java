@@ -16,10 +16,10 @@ import android.widget.ArrayAdapter;
 public class PracticeLauncherActivity extends LauncherActivity {
 	// 初始化数据源
 	String[] list = { "ExpandableListActivityTest", "PreferenceActivityTest",
-			"ListActivityTest", "FragmentActivityTest" };
+			"ListActivityTest", "FragmentActivityTest","ContactsActivity" };
 	Class<?>[] classList = { ExpandableListActivityTest.class,
 			ExpandableListActivityTest.class, ExpandableListActivityTest.class,
-			ExpandableListActivityTest.class };
+			ExpandableListActivityTest.class,ContactsActivity.class };
 
 	@SuppressLint("InlinedApi")
 	@Override
