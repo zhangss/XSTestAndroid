@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 定义变化速度类型为匀速 时间为5000ms -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="5000"
+    android:interpolator="@android:anim/linear_interpolator" >
+
+    <!-- 动画定义步骤 开始状态(透明度 位置、缩放、旋转等) 结束状态 持续时间 -->
+    <!-- 定义缩放变换 -->
+    <scale
+        android:duration="2000"
+        android:fillAfter="true"
+        android:fromXScale="1.0"
+        android:fromYScale="1.0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="1.4"
+        android:toYScale="0.6" />
+
+    <!-- 定义位移变化 -->
+    <translate
+        android:duration="2000"
+        android:fromXDelta="10"
+        android:fromYDelta="30"
+        android:toXDelta="130"
+        android:toYDelta="-80" />
+
+</set>

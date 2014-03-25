@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <resources>
-    <!-- 主View的灰色背景 -->
+    <!-- 主View的灰色背景 RGB/ARGB(透明度) -->
     <color name="common_bg">#EDEDED</color>   
     <color name="table_textColor_normal">#929292</color>
     <color name="table_textColor_selected">#3F67BF</color> 

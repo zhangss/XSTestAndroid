@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- String列表 -->
+    <string-array name="name_list">
+        <item>One</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- 整形列表 -->
+    <integer-array name="number_list">
+        <item>1</item>
+        <item>2</item>
+    </integer-array>
+
+    <!-- 资源列表 -->
+    <array name="list">
+        <item>@string/contact_name</item>
+        <item>@string/contact_phone</item>
+    </array>
+
+</resources>

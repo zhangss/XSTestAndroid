@@ -1,5 +1,9 @@
 package com.example.android;
 
+import android.animation.AnimatorInflater;
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -7,6 +11,9 @@ import android.graphics.Paint;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.example.xstestandroid.R;
+
+@SuppressLint("NewApi")
 public class DrawView extends View {
 	
 	/**
@@ -15,6 +22,12 @@ public class DrawView extends View {
 	public DrawView(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
+		//设置动画
+		//Call requires API level 11 (current min is 8): android.animation.AnimatorInflater#loadAnimator
+		ObjectAnimator colorAnmi = (ObjectAnimator)AnimatorInflater.loadAnimator(context, R.animator.color_anim);
+		colorAnmi.setEvaluator(new ArgbEvaluator());
+		colorAnmi.setTarget(this);
+		colorAnmi.start();
 	}
 	
 	private float curX = 40;

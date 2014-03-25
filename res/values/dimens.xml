@@ -1,5 +1,7 @@
 <resources>
 
+    <!-- 布局文件中使用资源 @package_name:respurce_type/resource.name -->
+    <!-- Java代码中使用资源 package_name.R.resource_type.resource.name -->
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

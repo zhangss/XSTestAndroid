@@ -19,7 +19,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sp_action"/>
-
+    
+    <SeekBar android:id="@+id/bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progressDrawable="@drawable/my_bar"/>
+    
     <TextView
         android:id="@+id/nameLabel"
         android:layout_width="wrap_content"

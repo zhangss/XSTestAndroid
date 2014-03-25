@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -105,6 +107,11 @@ public class ContactsActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+		
+		//动画
+		Animation anim = AnimationUtils.loadAnimation(this, R.anim.my_anim);
+		anim.setFillAfter(true);
+		btn.setAnimation(anim);
 
 	}
 
