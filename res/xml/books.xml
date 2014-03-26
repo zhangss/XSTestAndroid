@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- XML数据读取及解析测试 -->
+<books>
+
+    <book
+        price="99.0"
+        出版日期="2008年" >
+诛仙1
+    </book>
+    <book
+        price="89.0"
+        出版日期="2009年" >
+诛仙2
+    </book>
+    <book
+        price="79.0"
+        出版日期="2010年" >
+诛仙3
+    </book>
+
+</books>

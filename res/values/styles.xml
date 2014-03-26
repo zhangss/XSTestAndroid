@@ -1,5 +1,6 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- 主题资源 对view无效，作用于activity，只能改变窗口的外观格式 -->
     <!--
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -16,5 +17,16 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-
+    
+    <!-- 定义统一的样式 -->
+    <style name="style1">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/table_textColor_normal</item>
+    </style>
+    
+    <!-- 继承Style1的字体大小 重写颜色 -->
+    <style name="style2" parent="@style/style1">
+        <item name="android:textColor">@color/table_textColor_selected</item>
+    </style>
+    
 </resources>

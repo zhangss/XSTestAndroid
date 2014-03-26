@@ -28,7 +28,7 @@ import com.example.xstestandroid.R;
 public class ContactsActivity extends Activity {
 
 	private final int REQUEST_CODE = 0;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

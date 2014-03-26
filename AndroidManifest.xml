@@ -107,7 +107,15 @@
             android:name="com.example.xstestandroid.practice.ContactsActivity"
             android:label="查看系统联系人" >
         </activity>
-
+        <activity
+            android:name="com.example.android.XMLParserActivity"
+            android:label="Android-XML解析" >
+        </activity>
+        <activity
+            android:name="com.example.android.UpdateAPKActivity"
+            android:label="Android-APK更新" >
+        </activity>
+        
         <!-- 加入百度定位服务 -->
         <service
             android:name="com.baidu.location.f"

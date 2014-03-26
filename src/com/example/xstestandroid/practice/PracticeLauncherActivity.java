@@ -1,5 +1,8 @@
 package com.example.xstestandroid.practice;
 
+import com.example.android.UpdateAPKActivity;
+import com.example.android.XMLParserActivity;
+
 import android.annotation.SuppressLint;
 import android.app.LauncherActivity;
 import android.content.Intent;
@@ -16,10 +19,10 @@ import android.widget.ArrayAdapter;
 public class PracticeLauncherActivity extends LauncherActivity {
 	// 初始化数据源
 	String[] list = { "ExpandableListActivityTest", "PreferenceActivityTest",
-			"ListActivityTest", "FragmentActivityTest","ContactsActivity" };
+			"ListActivityTest", "FragmentActivityTest","ContactsActivity","XMLParserActivity","UpdateAPKActivity" };
 	Class<?>[] classList = { ExpandableListActivityTest.class,
 			ExpandableListActivityTest.class, ExpandableListActivityTest.class,
-			ExpandableListActivityTest.class,ContactsActivity.class };
+			ExpandableListActivityTest.class,ContactsActivity.class,XMLParserActivity.class, UpdateAPKActivity.class};
 
 	@SuppressLint("InlinedApi")
 	@Override
