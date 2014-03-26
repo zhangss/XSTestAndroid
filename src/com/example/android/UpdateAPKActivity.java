@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -20,7 +19,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.text.AndroidCharacter;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -79,24 +77,24 @@ public class UpdateAPKActivity extends Activity {
 	}
 
 	// 解析XML内容
+	@SuppressWarnings("unused")
 	private File downloadAPK(String urlString) {
 		/**
 		 * Andorid文件路径问题
 		 */
 		String path = null;
 		if (Environment.getExternalStorageState().equals(
-				Environment.MEDIA_MOUNTED)) {
+				Environment.MEDIA_MOUNTED) && false) {
 			path = Environment.getExternalStorageDirectory().getAbsolutePath();
 
 		} else {
+			path = createFileInAppData("update");
 			Log.e("Update",
 					"SDCard State:" + Environment.getExternalStorageState());
 		}
-//		File file = new File(path, "update.apk");
+		File file = new File(path, "update.apk");
 //		File file = new File(path + "/update.apk");
 //		createFileInSDCard("AndroidTest");
-		String filePath = createFileInAppData("update");
-		File file = new File(filePath, "update.apk");
 		if (file.exists()) {
 			Log.e("Update", "Update is Exist!");
 			return file;
@@ -154,6 +152,7 @@ public class UpdateAPKActivity extends Activity {
 	 * @param name
 	 * @return
 	 */
+	@SuppressWarnings("unused")
 	private String createFileInSDCard(String name) {
 		String path = null;
 		if (Environment.getExternalStorageState().equals(
@@ -174,20 +173,18 @@ public class UpdateAPKActivity extends Activity {
 	 */
 	private String createFileInAppData(String name) {
 		String path = null;
-		if (Environment.getExternalStorageState().equals(
-				Environment.MEDIA_MOUNTED)) {
-			path = Environment.getDataDirectory() + "/" + name;
-			File file = new File(path);
-			//创建文件夹
-			file.mkdirs();
-			Log.v("Update", "CreateFileInDataSuccess");
-		}
+		path = this.getFilesDir() + "/" + name;
+		File file = new File(path);
+		//创建文件夹
+		Boolean isSuccess = file.mkdirs();
+		Log.v("Update", "CreateFileInDataSuccess" + isSuccess.toString());
 		return path;
 	}
 
 	/**
 	 * 删除安装完成之后的APK
 	 */
+	@SuppressWarnings("unused")
 	private void deleteAPK() {
 		if (apkFile.exists()) {
 			apkFile.delete();
