@@ -9,8 +9,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Date;
-import java.sql.Time;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -33,18 +31,25 @@ import android.widget.Button;
 import com.example.xstestandroid.R;
 
 @SuppressLint("HandlerLeak")
+/**
+ * 1.把APK放到/data/data/app/..目录下 安装会报错包解析错误，是因为权限问题
+ * 2.APK放在内存卡位置即无此问题
+ * @author saic
+ *
+ */
 public class UpdateAPKActivity extends Activity {
 
 	public File apkFile;
+	public String updatePath;
 
 	private Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
 			case 0x123: {
 				Log.v("Update", "reveiveMessage");
-				if (apkFile != null){
-					installAPK(apkFile);
-				}else {
+				if (apkFile != null) {
+					installAPK(updatePath);
+				} else {
 					Log.e("Update", "下载失败,File 不存在!");
 				}
 				break;
@@ -70,9 +75,10 @@ public class UpdateAPKActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				// 百度贴吧测试url
-				
-//				final String urlString = "http://gdown.baidu.com/data/wisegame/6eb90709a4e436f2/baidutieba_80.apk";
-				final String urlString = "http://10.32.17.125:8080/BarTackApp.apk";
+
+				// final String urlString =
+				// "http://gdown.baidu.com/data/wisegame/6eb90709a4e436f2/baidutieba_80.apk";
+				final String urlString = "http://10.32.17.125:8080/bartack.apk";
 				new Thread(new Runnable() {
 
 					@Override
@@ -90,17 +96,19 @@ public class UpdateAPKActivity extends Activity {
 	// 解析XML内容
 	private File downloadAPK(String urlString) {
 		/**
-		 * Andorid文件路径问题 优先创建SD卡目录
+		 * Andorid文件路径问题 优先创建SD卡
 		 */
-		String path = createFileInSDCard("update");
+		String path = createFileInSDCard("");
 		if (path == null) {
-			path = createFileInAppData("update");
+			path = createFileInAppData("");
 		}
 		File file = new File(path, "update.apk");
+		updatePath = file.getAbsolutePath();
+
 		if (file.exists()) {
 			Log.e("Update", "Update is Exist!");
 			file.delete();
-			// return file;
+//			return file;
 		}
 		Log.e("zhangss", "Download URL:" + urlString);
 		URL url;
@@ -116,6 +124,7 @@ public class UpdateAPKActivity extends Activity {
 			int progress = 0;
 			// 分配内存过多会直接崩溃 byte 分配1k空间为1024
 			// 减少分配的空间 可以降低下载文件内容不完全的问题
+			// 解析包出现问题可能是0apk所在目录权限问题1网络传输丢包2APK打包方式不对
 			byte[] buffer = new byte[64];
 			int len;
 			int count = 0;
@@ -150,10 +159,10 @@ public class UpdateAPKActivity extends Activity {
 
 	/**
 	 * 获取下载的文件名称
+	 * 
 	 * @param conn
 	 * @return
 	 */
-	@SuppressWarnings("unused")
 	private String getFileName(HttpURLConnection conn) {
 		String filename = "";
 		boolean isok = false;
@@ -175,7 +184,8 @@ public class UpdateAPKActivity extends Activity {
 					result = new String(value.getBytes("ISO-8859-1"), "GBK");
 					int location = result.indexOf("filename");
 					if (location >= 0) {
-						result = result.substring(location + "filename".length());
+						result = result.substring(location
+								+ "filename".length());
 						filename = result.substring(result.indexOf("=") + 1);
 						isok = true;
 					}
@@ -199,13 +209,27 @@ public class UpdateAPKActivity extends Activity {
 	/**
 	 * 安装APK
 	 * 
-	 * @param file
+	 * @param path
 	 */
-	private void installAPK(File file) {
-		Log.v("Update", "InstallAPK:" + file.toString());
+	private void installAPK(String path) {
+		Log.v("Update", "InstallAPK:" + path);	
+		
+		//打开权限
+		/**
+		 * 只能打开files或者cache目录下的文件的权限，不能打开文件夹的。。
+		 */
+	    try { 
+	        String command = "chmod " + "777" + " " + path; 
+	        Runtime runtime = Runtime.getRuntime(); 
+	        runtime.exec(command); 
+	    } catch (IOException e) { 
+	        e.printStackTrace(); 
+	    } 
+
+		File newFile = new File(path);
 		Intent intent = new Intent();
 		intent.setAction(Intent.ACTION_VIEW);
-		intent.setDataAndType(Uri.fromFile(file),
+		intent.setDataAndType(Uri.fromFile(newFile),
 				"application/vnd.android.package-archive");
 		startActivity(intent);
 	}
@@ -216,22 +240,29 @@ public class UpdateAPKActivity extends Activity {
 	 * @param name
 	 * @return
 	 */
-	@SuppressWarnings("unused")
 	private String createFileInSDCard(String name) {
 		String path = null;
 		if (Environment.getExternalStorageState().equals(
 				Environment.MEDIA_MOUNTED)) {
-			path = Environment.getExternalStorageDirectory().getAbsolutePath()
-					+ "/" + name;
-			File file = new File(path);
-			// 创建文件夹
-			file.mkdirs();
-			Log.v("Update", "CreateFileInSDCardSuccess");
+			if (name == null || name == "") {
+				path = Environment.getExternalStorageDirectory()
+						.getAbsolutePath();
+			}
+			else {
+				path = Environment.getExternalStorageDirectory().getAbsolutePath()
+						+ "/" + name;
+				File file = new File(path);
+				if (!file.exists()) {
+					// 创建文件夹
+					file.mkdirs();
+				}
+				Log.v("Update", "CreateFileInSDCardSuccess");				
+			}
 		} else {
 			Log.e("Update",
 					"SDCard State:" + Environment.getExternalStorageState());
 		}
-		return path;
+		return null;
 	}
 
 	/**
@@ -242,11 +273,21 @@ public class UpdateAPKActivity extends Activity {
 	 */
 	private String createFileInAppData(String name) {
 		String path = null;
-		path = getApplicationContext().getFilesDir() + "/" + name;
-		File file = new File(path);
-		// 创建文件夹
-		Boolean isSuccess = file.mkdirs();
-		Log.v("Update", "CreateFileInDataSuccess" + isSuccess.toString());
+		if (name == null || name == ""){
+			path = getApplicationContext().getFilesDir().getAbsolutePath(); ///data/data/app/files
+//			path = getApplicationContext().getCacheDir().getAbsolutePath(); ///data/data/app/cache
+//			path = Environment.getDownloadCacheDirectory().getAbsolutePath(); ///cache 木有权限?!!
+		}else {
+			path = getApplicationContext().getFilesDir().getAbsolutePath() + "/" + name;
+//			path = getApplicationContext().getCacheDir().getAbsolutePath() + "/" + name;	
+//			path = Environment.getDownloadCacheDirectory().getAbsolutePath() + "/" + name;
+			File file = new File(path);
+			// 创建文件夹
+			if (!file.exists()) {
+				Boolean isSuccess = file.mkdirs();
+				Log.v("Update", "CreateFileInDataSuccess" + isSuccess.toString());			
+			}
+		}
 		return path;
 	}
 
@@ -313,4 +354,6 @@ public class UpdateAPKActivity extends Activity {
 		unregisterReceiver(apkInstallListener);
 		super.onDestroy();
 	}
+
+	// 显示通知栏的安装进度
 }

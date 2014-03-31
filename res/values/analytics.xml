@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- GA的APPId -->
+    <string name="ga_trackingId">UA-XXXX-Y</string>
+    <!-- GA自动收集 -->
+    <bool name="ga_autoActivityTracking">true</bool>
+    <!-- GA捕获异常 -->
+    <bool name="ga_reportUncaughtExceptions">true</bool>
+    
+</resources>
