@@ -93,7 +93,7 @@ public class ExceptionActivity extends Activity {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Throwable {
 		try {
 			f();
 		} catch (MyException e) {
@@ -106,6 +106,8 @@ public class ExceptionActivity extends Activity {
 		} catch (MyException e) {
 			// TODO: handle exception
 			e.printStackTrace(System.err);
+			//更新异常内容 重新抛出异常
+			throw e.fillInStackTrace();
 		}
 		
 		try {
@@ -122,6 +124,26 @@ public class ExceptionActivity extends Activity {
 		} catch (ArrayIndexOutOfBoundsException e) {
 			// TODO: handle exception
 			e.printStackTrace(System.err);
+		}
+		
+		for(int i= 0; i < 10; i ++){
+			try {
+				g();
+			} catch (MyException e) {
+				// TODO: handle exception
+			} finally{
+				/*
+				 * Finally中的代码 无论是否能抓到异常都会执行
+				 * Finally不受return和break等语句影响，哪怕try中代码已经return结果，finally也一定会执行。
+				 * Finally中可以用来回收内存(Java有垃圾回收机制,故无需这样做)
+				 * Finally需要清理一些资源或者把一些资源恢复到初始状态，如打开的文件或者网络.
+				 * 如果try中抛出异常继而在finally中也抛出异常,或者直接return,那么try中的异常就会被替代(return则不会抛出异常)，造成异常丢失。
+				 */
+				if (i >= 2) {
+					break;
+				}
+			}
+			
 		}
 				
 	}
