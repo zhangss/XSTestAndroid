@@ -24,7 +24,6 @@ package com.example.xstestandroid;
 
 import java.util.ArrayList;
 
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -49,7 +48,6 @@ import com.example.xstestandroid.home.HomeFragment;
 import com.example.xstestandroid.main.MainViewModel;
 import com.example.xstestandroid.other.OtherFragment;
 import com.example.xstestandroid.other.OtherFragment.ListFragmentCallBacks;
-import com.example.xstestandroid.practice.PracticeLauncherActivity;
 
 public class MainActivity extends BaseFragmentActivity implements ListFragmentCallBacks{
 

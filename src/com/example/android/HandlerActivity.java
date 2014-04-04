@@ -67,7 +67,7 @@ public class HandlerActivity extends Activity {
 		
 		//启动新线程
 		calThred = new CalThred();
-		calThred.start();		
+		calThred.start();	
 	}
 
 	private CalThred calThred;
@@ -90,6 +90,7 @@ public class HandlerActivity extends Activity {
 			};
 			Looper.loop();
 		}
+		
 	}
 	
 	//UI触发 向线程内发送信息
