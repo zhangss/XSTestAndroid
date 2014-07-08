@@ -73,7 +73,6 @@ public class MainActivity extends BaseFragmentActivity implements ListFragmentCa
 	private FragmentManager fm;
 	private FragmentTransaction ft;
 	private int currentIndex;
-	
 	/**
 	 * TODO ???:
 	 */
