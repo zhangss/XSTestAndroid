@@ -6,10 +6,11 @@
 
 # 忽略bin目录所有文件
 bin
+/bin
 # 忽略所有.class类型文件
 *.class
+.class
 
 .DS_Store
 .settings
 gen
-/bin

@@ -15,6 +15,7 @@ import com.baidu.location.GeofenceClient;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.LocationClientOption.LocationMode;
+import com.example.android.javatest.ListTest;
 
 public class MainApplication extends Application {
 	
@@ -46,6 +47,8 @@ public class MainApplication extends Application {
 		locationClient.registerLocationListener(mLocationListener);
 		
 		geofenceClient = new GeofenceClient(this);
+		
+		ListTest.isContainObject();
 	}
 	
 	/**

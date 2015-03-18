@@ -1,3 +1,10 @@
+
+<!-- 
+1.Android中的组件需要使用一个int值来代表即组件id属性值。id只能接受资源类型的值，即必须以@开头的值。
+  <1>使用@+id/name时，修改完保存之后，系统会自动在R中创建一个以name为名的变量，并随机分配一个值。
+     R.java中会生成int name = value，value是十六进制值。如果R中发现同名的则会使用旧的值，不会创建新的。
+  <2>使用@id/name时，则是引用，引用已经存在的id，不会创建
+ -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main_layout"
     android:layout_width="match_parent"

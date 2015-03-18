@@ -8,83 +8,150 @@
 package com.example.xstestandroid;
 
 public final class R {
+    public static final class anim {
+        public static final int my_anim=0x7f040000;
+    }
+    public static final class animator {
+        public static final int color_anim=0x7f050000;
+    }
+    public static final class array {
+        /**  资源列表 
+         */
+        public static final int list=0x7f090002;
+        /**  String列表 
+         */
+        public static final int name_list=0x7f090000;
+        /**  整形列表 
+         */
+        public static final int number_list=0x7f090001;
+    }
     public static final class attr {
     }
-    public static final class color {
-        /**  主View的灰色背景 
+    public static final class bool {
+        /**  GA自动收集 
          */
-        public static final int common_bg=0x7f050000;
-        public static final int table_textColor_normal=0x7f050001;
-        public static final int table_textColor_selected=0x7f050002;
-        public static final int transparent=0x7f050003;
+        public static final int ga_autoActivityTracking=0x7f080000;
+        /**  GA捕获异常 
+         */
+        public static final int ga_reportUncaughtExceptions=0x7f080001;
+        /**  注释 
+         */
+        public static final int is_male=0x7f080002;
+    }
+    public static final class color {
+        /**  主View的灰色背景 RGB/ARGB(透明度) 
+         */
+        public static final int common_bg=0x7f0a0000;
+        public static final int table_textColor_normal=0x7f0a0001;
+        public static final int table_textColor_selected=0x7f0a0002;
+        public static final int transparent=0x7f0a0003;
     }
     public static final class dimen {
-        /**  Default screen margins, per the Android Design guidelines. 
+        /**  布局文件中使用资源 @package_name:respurce_type/resource.name 
+ Java代码中使用资源 package_name.R.resource_type.resource.name 
+ Default screen margins, per the Android Design guidelines. 
 
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f060000;
-        public static final int activity_vertical_margin=0x7f060001;
-        public static final int tabbar_height=0x7f060003;
-        public static final int tabbar_interval=0x7f060002;
-        public static final int tabbar_item_height=0x7f060004;
-        public static final int tabbar_middle_height=0x7f060005;
-        public static final int tabbar_textSize=0x7f060006;
+        public static final int activity_horizontal_margin=0x7f0b0000;
+        public static final int activity_vertical_margin=0x7f0b0001;
+        public static final int tabbar_height=0x7f0b0003;
+        public static final int tabbar_interval=0x7f0b0002;
+        public static final int tabbar_item_height=0x7f0b0004;
+        public static final int tabbar_middle_height=0x7f0b0005;
+        public static final int tabbar_textSize=0x7f0b0006;
     }
     public static final class drawable {
-        public static final int ic_butter=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int tab_bargain_icon_n=0x7f020002;
-        public static final int tab_bargain_icon_selector=0x7f020003;
-        public static final int tab_home_icon_n=0x7f020004;
-        public static final int tab_home_icon_p=0x7f020005;
-        public static final int tab_home_icon_selector=0x7f020006;
-        public static final int tab_kan_bg4=0x7f020007;
-        public static final int tab_kan_icon_n=0x7f020008;
-        public static final int tab_layout_bg=0x7f020009;
-        public static final int tab_layout_bg_p=0x7f02000a;
-        public static final int tab_layout_bg_selector=0x7f02000b;
-        public static final int tab_more_icon_n=0x7f02000c;
-        public static final int tab_more_icon_p=0x7f02000d;
-        public static final int tab_more_icon_selector=0x7f02000e;
-        public static final int tab_personal_icon_n=0x7f02000f;
-        public static final int tab_personal_icon_p=0x7f020010;
-        public static final int tab_personal_icon_selector=0x7f020011;
-        public static final int tab_search_icon_n=0x7f020012;
-        public static final int tab_search_icon_p=0x7f020013;
-        public static final int tab_search_icon_selector=0x7f020014;
-        public static final int test=0x7f020015;
+        public static final int back=0x7f020000;
+        public static final int ic_butter=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int my_bar=0x7f020003;
+        public static final int p=0x7f020004;
+        public static final int plane=0x7f020005;
+        public static final int t=0x7f020006;
+        public static final int tab_bargain_icon_n=0x7f020007;
+        public static final int tab_bargain_icon_selector=0x7f020008;
+        public static final int tab_home_icon_n=0x7f020009;
+        public static final int tab_home_icon_p=0x7f02000a;
+        public static final int tab_home_icon_selector=0x7f02000b;
+        public static final int tab_kan_bg4=0x7f02000c;
+        public static final int tab_kan_icon_n=0x7f02000d;
+        public static final int tab_layout_bg=0x7f02000e;
+        public static final int tab_layout_bg_p=0x7f02000f;
+        public static final int tab_layout_bg_selector=0x7f020010;
+        public static final int tab_more_icon_n=0x7f020011;
+        public static final int tab_more_icon_p=0x7f020012;
+        public static final int tab_more_icon_selector=0x7f020013;
+        public static final int tab_personal_icon_n=0x7f020014;
+        public static final int tab_personal_icon_p=0x7f020015;
+        public static final int tab_personal_icon_selector=0x7f020016;
+        public static final int tab_search_icon_n=0x7f020017;
+        public static final int tab_search_icon_p=0x7f020018;
+        public static final int tab_search_icon_selector=0x7f020019;
+        public static final int test=0x7f02001a;
+        public static final int z=0x7f02001b;
     }
     public static final class id {
-        public static final int main_content=0x7f0a0007;
-        public static final int main_layout=0x7f0a0000;
-        public static final int tabbar=0x7f0a0001;
-        public static final int tabbar_bargain=0x7f0a0004;
-        public static final int tabbar_car=0x7f0a0003;
-        public static final int tabbar_home=0x7f0a0002;
-        public static final int tabbar_more=0x7f0a0006;
-        public static final int tabbar_my=0x7f0a0005;
+        public static final int bar=0x7f0e000b;
+        public static final int btn1=0x7f0e0016;
+        public static final int btn2=0x7f0e0017;
+        public static final int btn3=0x7f0e0018;
+        public static final int btn4=0x7f0e0019;
+        public static final int main_content=0x7f0e0007;
+        public static final int main_layout=0x7f0e0000;
+        public static final int nameLabel=0x7f0e000c;
+        public static final int phoneLabel=0x7f0e000d;
+        public static final int returnHome=0x7f0e0009;
+        public static final int root=0x7f0e000e;
+        public static final int showContacts=0x7f0e0008;
+        public static final int spAction=0x7f0e000a;
+        public static final int tabbar=0x7f0e0001;
+        public static final int tabbar_bargain=0x7f0e0004;
+        public static final int tabbar_car=0x7f0e0003;
+        public static final int tabbar_home=0x7f0e0002;
+        public static final int tabbar_more=0x7f0e0006;
+        public static final int tabbar_my=0x7f0e0005;
+        public static final int tableLayout=0x7f0e0015;
+        public static final int text1=0x7f0e000f;
+        public static final int text2=0x7f0e0010;
+        public static final int text3=0x7f0e0011;
+        public static final int text4=0x7f0e0012;
+        public static final int text5=0x7f0e0013;
+        public static final int text6=0x7f0e0014;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int contacts_test_layout=0x7f030001;
+        public static final int mix_layout=0x7f030002;
+        public static final int test_fragmentlayout=0x7f030003;
+        public static final int test_tablelayout=0x7f030004;
     }
     public static final class menu {
-        public static final int main=0x7f090000;
+        public static final int main=0x7f0d0000;
     }
     public static final class string {
-        public static final int action_settings=0x7f070001;
-        public static final int app_name=0x7f070000;
-        public static final int hello_world=0x7f070002;
-        public static final int tabbar_bargain=0x7f070005;
-        public static final int tabbar_car=0x7f070004;
-        public static final int tabbar_home=0x7f070003;
-        public static final int tabbar_more=0x7f070007;
-        public static final int tabbar_my=0x7f070006;
+        public static final int action_settings=0x7f070002;
+        public static final int app_name=0x7f070001;
+        public static final int contact_name=0x7f07000a;
+        public static final int contact_phone=0x7f07000b;
+        /**  GA的APPId 
+         */
+        public static final int ga_trackingId=0x7f070000;
+        public static final int hello_world=0x7f070003;
+        public static final int return_home=0x7f07000c;
+        public static final int show_contact=0x7f070009;
+        public static final int sp_action=0x7f07000d;
+        public static final int tabbar_bargain=0x7f070006;
+        public static final int tabbar_car=0x7f070005;
+        public static final int tabbar_home=0x7f070004;
+        public static final int tabbar_more=0x7f070008;
+        public static final int tabbar_my=0x7f070007;
     }
     public static final class style {
-        /** 
+        /**  主题资源 对view无效，作用于activity，只能改变窗口的外观格式 
+
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
@@ -105,13 +172,20 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f0c0000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f0c0001;
+        /**  定义统一的样式 
+         */
+        public static final int style1=0x7f0c0002;
+        /**  继承Style1的字体大小 重写颜色 
+         */
+        public static final int style2=0x7f0c0003;
     }
     public static final class xml {
-        public static final int preference_headers=0x7f040000;
+        public static final int books=0x7f060000;
+        public static final int preference_headers=0x7f060001;
     }
 }
